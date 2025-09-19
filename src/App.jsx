@@ -1,9 +1,14 @@
-function App() {
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+import Navbar from "./components/navbar";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function App() {
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
+    <main>
+      <Navbar />
+    </main>
   );
 }
-
-export default App;

@@ -1,10 +1,8 @@
-import React from "react";
-
 export default function ComingSoon() {
   return (
-    <section className='enterance-message'>
+    <section className='entrance-message'>
       <div className='h-full col-center gap-10'>
-        <img src='/images/logo.webp' alt='logo' className='enterance-logo' />
+        <img src='/images/logo.webp' alt='logo' className='entrance-logo' />
 
         <div className='text-wrapper'>
           <h1 className='gradient-title'>
@@ -19,7 +17,7 @@ export default function ComingSoon() {
             className='md:w-32 w-20'
           />
           <img
-            src='/images/x.svg'
+            src='/images/x-logo.svg'
             alt='xbox series x logo'
             className='md:w-52 w-40'
           />

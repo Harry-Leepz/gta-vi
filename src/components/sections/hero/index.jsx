@@ -1,4 +1,79 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import ComingSoon from "../coming-soon";
+
+import { useMaskSettings } from "../../../utils";
+
 export default function Hero() {
+  const { initialMaskPos, initialMaskSize, maskSize } = useMaskSettings();
+
+  useGSAP(() => {
+    gsap.set(".mask-wrapper", {
+      maskPosition: initialMaskPos,
+      maskSize: initialMaskSize,
+    });
+
+    gsap.set(".mask-logo", {
+      opacity: 0,
+      marginTop: "-100vh",
+    });
+
+    gsap.set(".entrance-message", {
+      marginTop: "0vh",
+    });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".hero-section",
+        start: "top top",
+        end: "+=200",
+        scrub: 5,
+        pin: true,
+      },
+    });
+
+    tl.to(".fade-out", {
+      opacity: 0,
+      ease: "power1.inOut",
+    })
+      .to(".scale-out", {
+        scale: 1,
+        ease: "power1.inOut",
+      })
+      .to(
+        ".mask-wrapper",
+        {
+          maskSize,
+          ease: "power1.inOut",
+        },
+        "<"
+      )
+      .to(".mask-wrapper", {
+        opacity: 0,
+      })
+      .to(
+        ".overlay-logo",
+        {
+          opacity: 1,
+          onComplete: () => {
+            gsap.to(".overlay-logo", { opacity: 0 });
+          },
+        },
+        "<"
+      )
+      .to(
+        ".entrance-message",
+        {
+          duration: 1,
+          ease: "power1.inOut",
+          maskImage:
+            "radial-gradient(circle at 50% 0vh, black 50%, transparent 100%)",
+        },
+        "<"
+      );
+  });
+
   return (
     <section className='hero-section'>
       <div className='size-full mask-wrapper'>
@@ -37,6 +112,8 @@ export default function Hero() {
           className='overlay-logo'
         />
       </div>
+
+      <ComingSoon />
     </section>
   );
 }

@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/all";
 
 import Navbar from "./components/navbar";
 import Hero from "./components/sections/hero";
+import Intro from "./components/sections/intro";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +12,7 @@ export default function App() {
     <main>
       <Navbar />
       <Hero />
+      <Intro />
     </main>
   );
 }

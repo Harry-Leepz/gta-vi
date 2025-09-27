@@ -14,7 +14,7 @@ export default function Intro() {
         trigger: ".first-vd-wrapper",
         start: "center center",
         end: "+=200% top",
-        scrub: true,
+        scrub: 2,
         pin: true,
       },
     });

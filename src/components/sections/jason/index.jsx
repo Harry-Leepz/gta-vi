@@ -1,6 +1,41 @@
-import React from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function Jason() {
+  useGSAP(() => {
+    gsap.set(".jason", { marginTop: "-80vh" });
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".jason",
+          top: "top 90%",
+          end: "10% center",
+          scrub: 2,
+        },
+      })
+      .to(".first-vd", {
+        opacity: 0,
+        duration: 1,
+        ease: "power1.inOut",
+      });
+
+    gsap.to(
+      ".jason .img-box",
+      {
+        scrollTrigger: {
+          trigger: ".jason",
+          start: "top center",
+          end: "bottom center",
+          scrub: 2,
+        },
+        y: -300,
+        ease: "power1.inOut",
+      },
+      "<"
+    );
+  });
+
   return (
     <section className='jason'>
       <div className='max-w-lg jason-content'>

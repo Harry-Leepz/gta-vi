@@ -9,7 +9,7 @@ export default function Jason() {
       .timeline({
         scrollTrigger: {
           trigger: ".jason",
-          top: "top 90%",
+          start: "top 90%",
           end: "10% center",
           scrub: 2,
         },
@@ -26,7 +26,7 @@ export default function Jason() {
         scrollTrigger: {
           trigger: ".jason",
           start: "top center",
-          end: "bottom center",
+          end: "80% center",
           scrub: 2,
         },
         y: -300,
@@ -47,13 +47,12 @@ export default function Jason() {
           doing what he knows best, working for local drug runners. it might be
           time to try something new...
         </p>
-      </div>
-
-      <div className='jason-2'>
-        <img
-          src='/images/jason-2.webp'
-          alt='image of jason duval, a character in GTA VI'
-        />
+        <div className='jason-2'>
+          <img
+            src='/images/jason-2.webp'
+            alt='image of jason duval, a character in GTA VI'
+          />
+        </div>
       </div>
 
       <div className='space-y-5 mt-96 img-box'>
